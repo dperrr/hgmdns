@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Shirt Name Json",
+        "productID": 0,
+        "price": "PHP 699.00",
+        "image": "images/shirt-2.jpg",
+        "color": ["bg-cyan-300", "bg-green-300", "bg-pink-300"],
+        "image_gallery": ["images/shirt-1.jpg", "images/shirt-2.jpg", "images/shirt-3.jpg"]
+    },
+    {
+        "name": "Shirt Name Json",
+        "productID": 0,
+        "price": "PHP 699.00",
+        "image": "images/shirt-2.jpg",
+        "color": ["bg-cyan-300", "bg-green-300", "bg-pink-300"],
+        "image_gallery": ["images/shirt-1.jpg", "images/shirt-2.jpg", "images/shirt-3.jpg"]
+    },
+    {
+        "name": "Shirt Name Json",
+        "productID": 0,
+        "price": "PHP 699.00",
+        "image": "images/shirt-2.jpg",
+        "color": ["bg-cyan-300", "bg-green-300", "bg-pink-300"],
+        "image_gallery": ["images/shirt-1.jpg", "images/shirt-2.jpg", "images/shirt-3.jpg"]
+    }
+
+]
