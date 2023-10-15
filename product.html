@@ -25,7 +25,7 @@
             </ul>
           </div>
           <!-- Navigation Links -->
-          <ul class="space-x-6 flex lg:text-2xl">
+          <ul class="space-x-7 flex lg:text-1xl">
             <li>
               <a href="#" class="text-white hover:text-gray-300">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -55,16 +55,16 @@
       
       <main>
         <section class="container mx-auto px-6 lg:px-16 xl:px-32 mt-20">
-            <div class="grid grid-cols-2 gap-32">
+            <div class="grid md:grid-cols-2 gap-32 sm:grid-cols-1">
                 <div>
-                    <img src="images/shirt-1.jpg" alt="">
+                    <img src="images/shirt-1.jpg" alt="" id="shirt-pic">
                     <div class="image-gallery">
 
                     </div>
                 </div>
                 <div class="space-y-5">
-                    <h1 class="text-3xl">Shirt Name</h1>
-                    <h3>PHP 699.00</h3>
+                    <h1 class="text-3xl" id="shirt-name">Shirt Name</h1>
+                    <h3 id="shirt-price">PHP 699.00</h3>
                     <div class="rating">
 
                     </div>
@@ -102,10 +102,10 @@
                     
                 </div>
                 <div class="mt-2">
-                    <button class="bg-blue-300 p-2 w-full">ADD TO CART</button>
+                    <button class=" border border-blue-700 hover:bg-blue-700 hover:text-white font-semibold p-2 w-full">ADD TO CART</button>
                     <div class="flex justify-between space-x-1 mt-5">
-                        <button class="border w-full p-2 border-black hover:bg-black hover:text-white font-semibold">ADD TO WISH LIST</button>
-                        <button class="border w-full p-2 border-black hover:bg-black hover:text-white font-semibold">ADD TO WISH LIST</button>
+                        <button class="border w-full p-2 border-blue-700 hover:bg-blue-700 hover:text-white font-semibold">ADD TO WISH LIST</button>
+                        <button class="border w-full p-2 border-blue-700 hover:bg-blue-700 hover:text-white font-semibold">ADD TO WISH LIST</button>
                     </div>
                 </div>
             </div>
@@ -126,6 +126,37 @@
             quantityDisplay.innerHTML --;
         }); 
 
+
+        async function product() {
+        const response = await fetch("product.json");
+        const productItem = await response.json();
+        const productID = new URLSearchParams(location.search).get('product')
+   
+        displayProduct(productItem[productID]);
+
+        }
+
+        product();
+
+
+        function displayProduct(productItem){
+            
+            const shirtPic = document.getElementById('shirt-pic');
+            const shirtName = document.getElementById('shirt-name');
+            const shirtPrice = document.getElementById('shirt-price');
+            
+
+            const{
+                name,
+                price,
+                image
+            } = productItem;
+
+            shirtPic.src = image;
+            shirtName.innerHTML = name;
+            shirtPrice.innerHTML = price;
+
+        }
 
       </script>
 </body>
