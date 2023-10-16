@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  
     <nav class="bg-blue-700 drop-shadow-xl p-4">
         <!-- NAV CONTAINER -->
         <div class="container mx-auto px-6 lg:px-16 xl:px-32 flex justify-between items-center sticky">
@@ -96,7 +97,7 @@
                         <div class="bg-gray-500 p-3 text-white inline-block space-x-3">
                             <button class="text-white increase-quantity">+</button>
                             <span class="quantity text-white">1</span>
-                            <button class="text-white decrease-quantity">-</button>
+                            <button class="text-white decrease-quantity" id="btn-decrease">-</button>
                         </div>
 
                     
@@ -113,23 +114,31 @@
       </main>
       <script>
 
-        const increaseQuantiy = document.querySelector('.increase-quantity');
-        let quantityDisplay = document.querySelector('.quantity');
-        const decreaseQuantity = document.querySelector('.decrease-quantity');
-        
+      const increaseQuantity = document.querySelector('.increase-quantity');
+      const quantityDisplay = document.querySelector('.quantity');
+      const decreaseQuantity = document.querySelector('.decrease-quantity');
 
-        increaseQuantiy.addEventListener('click',() => {
-            quantityDisplay.innerHTML ++;
-        });
+      increaseQuantity.addEventListener('click', () => {
+          quantityDisplay.innerHTML++;
+          decreaseQuantity.disabled = false; // Re-enable the decrease button
+      });
 
-        decreaseQuantity.addEventListener('click',() => {
-            quantityDisplay.innerHTML --;
-        }); 
+      decreaseQuantity.addEventListener('click', () => {
+          let quantity = parseInt(quantityDisplay.innerHTML);
+          if (quantity > 0) {
+              quantityDisplay.innerHTML = quantity - 1;
+          }
+
+          if (quantity === 1) {
+              decreaseQuantity.disabled = true; // Disable the decrease button when quantity is 0
+          }
+      });
 
 
         async function product() {
         const response = await fetch("product.json");
         const productItem = await response.json();
+
         const productID = new URLSearchParams(location.search).get('product')
    
         displayProduct(productItem[productID]);

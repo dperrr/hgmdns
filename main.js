@@ -6,6 +6,7 @@ async function product() {
 }
 
 
+
 product();
 
 function displayProduct(product) {

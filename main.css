@@ -177,7 +177,7 @@ hr {
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 350px; 
+    column-gap: 150px; 
     row-gap: 36px;
     margin-top: 20px; 
 }
