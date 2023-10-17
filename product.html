@@ -65,7 +65,7 @@
                 </div>
                 <div class="space-y-5">
                     <h1 class="text-3xl" id="shirt-name">Shirt Name</h1>
-                    <h3 id="shirt-price">PHP 699.00</h3>
+                    <h3 id="shirt-price"><i class="fa-solid fa-peso-sign">699.00</i></h3>
                     <div class="rating">
 
                     </div>
@@ -92,12 +92,12 @@
                         </div>
                     </div>
                     <!-- QUANTITY -->
-                    <div class="">
+                    <div class="quantity">
                         <h1>Quantity:</h1>
-                        <div class="bg-gray-500 p-3 text-white inline-block space-x-3">
-                            <button class="text-white increase-quantity">+</button>
-                            <span class="quantity text-white">1</span>
-                            <button class="text-white decrease-quantity" id="btn-decrease">-</button>
+                        <div class="w-24 h-auto flex justify-between bg-gray-300 p-3 text-black font-medium  space-x-3">
+                            <button class=" increase-quantity">+</button>
+                            <span class="quantity-display">1</span>
+                            <button class=" decrease-quantity" id="btn-decrease">-</button>
                         </div>
 
                     
@@ -114,25 +114,26 @@
       </main>
       <script>
 
-      const increaseQuantity = document.querySelector('.increase-quantity');
-      const quantityDisplay = document.querySelector('.quantity');
-      const decreaseQuantity = document.querySelector('.decrease-quantity');
+      const increaseQuantityButton = document.querySelector('.increase-quantity');
+      const decreaseQuantityButton = document.querySelector('.decrease-quantity');
+      const quantityDisplay = document.querySelector('.quantity-display');
 
-      increaseQuantity.addEventListener('click', () => {
-          quantityDisplay.innerHTML++;
-          decreaseQuantity.disabled = false; // Re-enable the decrease button
+      increaseQuantityButton.addEventListener('click', () => {
+        let quantity = parseInt(quantityDisplay.innerHTML);
+        quantityDisplay.innerHTML = quantity + 1;
+        decreaseQuantityButton.disabled = false; 
       });
 
-      decreaseQuantity.addEventListener('click', () => {
-          let quantity = parseInt(quantityDisplay.innerHTML);
-          if (quantity > 0) {
-              quantityDisplay.innerHTML = quantity - 1;
-          }
-
-          if (quantity === 1) {
-              decreaseQuantity.disabled = true; // Disable the decrease button when quantity is 0
-          }
+      decreaseQuantityButton.addEventListener('click', () => {
+        let quantity = parseInt(quantityDisplay.innerHTML);
+        if (quantity > 0) {
+          quantityDisplay.innerHTML = quantity - 1;
+        }
+        if (quantity === 1) {
+          decreaseQuantityButton.disabled = true;
+        }
       });
+
 
 
         async function product() {
