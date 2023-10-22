@@ -58,7 +58,7 @@
         <section class="container mx-auto px-6 lg:px-16 xl:px-32 mt-20">
             <div class="grid md:grid-cols-2 gap-32 sm:grid-cols-1">
                 <div>
-                    <img src="images/shirt-1.jpg" alt="" id="shirt-pic">
+                    <img src="" alt="" id="shirt-pic">
                     <div class="image-gallery">
 
                     </div>
@@ -95,15 +95,15 @@
                     <div class="quantity">
                         <h1>Quantity:</h1>
                         <div class="w-24 h-auto flex justify-between bg-gray-300 p-3 text-black font-medium  space-x-3">
-                            <button class=" increase-quantity">+</button>
-                            <span class="quantity-display">1</span>
+                            <button class="increase-quantity">+</button>
+                            <span class="quantity-display total-quantity">1</span>
                             <button class=" decrease-quantity" id="btn-decrease">-</button>
                         </div>
 
                     
                 </div>
                 <div class="mt-2">
-                    <button class=" border border-blue-700 hover:bg-blue-700 hover:text-white font-semibold p-2 w-full">ADD TO CART</button>
+                    <button class=" border border-blue-700 hover:bg-blue-700 hover:text-white font-semibold p-2 w-full add-to-cart-btn">ADD TO CART</button>
                     <div class="flex justify-between space-x-1 mt-5">
                         <button class="border w-full p-2 border-blue-700 hover:bg-blue-700 hover:text-white font-semibold">ADD TO WISH LIST</button>
                         <button class="border w-full p-2 border-blue-700 hover:bg-blue-700 hover:text-white font-semibold">ADD TO WISH LIST</button>
@@ -111,63 +111,37 @@
                 </div>
             </div>
         </section>
+        <!-- SIDE CART -->
+      <div class="cart fixed top-0 right-0 w-96 h-screen transition-right duration-1000 hidden ">
+
+        <h2 class="text-3xl text-yellow-400 text-center my-5">Cart</h2>
+        <hr class="mb-5">
+        
+        <div class="flex justify-between items-center p-3">
+          <div class="list-cart flex items-center space-x-1">
+            <img src="images/shirt-3.jpg" alt="SHIRT" class="w-20 h-20">
+            <div class="cart-details">
+              <h2 class="lg:text-2xl text-sm md:text-2xl text-white font-medium">Jasper</h2>
+              <h3 class="font-medium text-white"><i class="fa-solid fa-peso-sign">699 / 1</i></h3>
+            </div>
+          </div>
+      
+          <div class="w-auto h-10 flex justify-between items-center bg-gray-300 p-5 t font-medium space-x-5 rounded-md">
+            <button class="increase-quantity">+</button>
+            <span class="quantity-display">1</span>
+            <button class="decrease-quantity" id="btn-decrease">-</button>
+          </div>
+        </div>
+      
+        <div class="w-full absolute bottom-0 space-x-1">
+          <div class="flex mt-5">
+            <button class="w-full p-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold close-btn">CLOSE</button>
+            <button class="w-full p-2 bg-blue-700 hover:bg-blue-600 text-white font-semibold">CHECKOUT</button>
+          </div>
+        </div>
+        
+      </div>
       </main>
-      <script>
-
-      const increaseQuantityButton = document.querySelector('.increase-quantity');
-      const decreaseQuantityButton = document.querySelector('.decrease-quantity');
-      const quantityDisplay = document.querySelector('.quantity-display');
-
-      increaseQuantityButton.addEventListener('click', () => {
-        let quantity = parseInt(quantityDisplay.innerHTML);
-        quantityDisplay.innerHTML = quantity + 1;
-        decreaseQuantityButton.disabled = false; 
-      });
-
-      decreaseQuantityButton.addEventListener('click', () => {
-        let quantity = parseInt(quantityDisplay.innerHTML);
-        if (quantity > 0) {
-          quantityDisplay.innerHTML = quantity - 1;
-        }
-        if (quantity === 1) {
-          decreaseQuantityButton.disabled = true;
-        }
-      });
-
-
-
-        async function product() {
-        const response = await fetch("product.json");
-        const productItem = await response.json();
-
-        const productID = new URLSearchParams(location.search).get('product')
-   
-        displayProduct(productItem[productID]);
-
-        }
-
-        product();
-
-
-        function displayProduct(productItem){
-            
-            const shirtPic = document.getElementById('shirt-pic');
-            const shirtName = document.getElementById('shirt-name');
-            const shirtPrice = document.getElementById('shirt-price');
-            
-
-            const{
-                name,
-                price,
-                image
-            } = productItem;
-
-            shirtPic.src = image;
-            shirtName.innerHTML = name;
-            shirtPrice.innerHTML = price;
-
-        }
-
-      </script>
+      <script src="product.js"></script>
 </body>
 </html>

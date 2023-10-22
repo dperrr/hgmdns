@@ -9,6 +9,8 @@ async function product() {
 
 product();
 
+
+// NEW ARRIVALS RENDERING
 function displayProduct(product) {
 
   let productHtml = "";
@@ -30,10 +32,12 @@ function displayProduct(product) {
       <div class="relative">
         <a href="product.html?product=${i}">
           <img src="${image}" alt="TSHIRT-1" class="rounded-tl-lg rounded-tr-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 absolute top-0 right-0 mt-2 mr-2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-          </svg>                
+         
         </a>
+         
+        <button class="w-7 h-7 absolute top-0 right-0 mt-2 mr-2 text-1xl lg:text-2xl ">
+        <i class="far fa-heart wishlist"></i>
+        </button>              
       </div>
 
       <!-- SHIRT COLOR -->
@@ -62,9 +66,29 @@ function displayProduct(product) {
     </div>`
 
     productHtml += productItem;
+
+    
   };
 
   document.getElementById('new-arrivals').innerHTML = productHtml;
+  
+    const wishlist = document.querySelectorAll('.wishlist');
+  wishlist.forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.classList.contains('far')) {
+        button.classList.remove('far');
+        button.classList.add('fas');
+        button.classList.toggle('wishlist-active');
+      }else{
+        button.classList.add('far');
+        button.classList.remove('fas');
+        button.classList.toggle('wishlist-active');
+      }
+    });
+  });
+
+
+
 }
 
 const cart = document.querySelector('.cart');
@@ -79,7 +103,3 @@ shoppingCartIcon.addEventListener('click', () => {
 });
 
 
-document.querySelector('.bg-slate-900').addEventListener('click', () => {
-
-  cart.classList.add('hidden');
-});
