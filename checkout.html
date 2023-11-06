@@ -1,0 +1,74 @@
+<nav class="bg-blue-700 drop-shadow-xl p-4">
+    <!-- NAV CONTAINER -->
+    <div class="container mx-auto px-6 lg:px-16 xl:px-32 flex justify-between items-center sticky">
+      <div class="flex items-center">
+        <img src="images/logo (1).png" alt="HGMNDS-LOGO" class="logo mr-4 w-24 md:w-32 lg:w-36 xl:w-36" loading="lazy">
+        <!-- SHOULD BE DROPDOWN -->
+        <ul class="space-x-5 font-semibold ">
+          <li class="text-white hover:text-gray-300 hidden lg:inline">
+            <a href="">Men</a>
+          </li>
+          <li class="text-white hover:text-gray-300 hidden lg:inline">
+            <a href="">Women</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Navigation Links -->
+      <ul class="space-x-7 flex lg:text-1xl">
+        <li>
+          <a href="#" class="text-white hover:text-gray-300">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+        </li>
+        <li class="relative">
+          <a href="#" class="text-white hover:text-gray-300 relative flex items-center justify-center">
+            <i class="far fa-heart">
+            <span class="heart-button  bg-red-500 absolute -top-2.5 -right-2.5 w-5 h-5 rounded-full hidden justify-center items-center text-sm" style="display: none;">1</span>
+            </i>
+          </a>
+        </li>          
+        <li>
+          <a href="#" class="text-white hover:text-gray-300">
+            <i class="fa-regular fa-user relative">
+            </i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="text-white hover:text-gray-300">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SIDE CART -->
+  <div class="cart fixed top-0 right-0 w-96 h-screen  hidden ">
+
+    <h2 class="text-3xl text-yellow-400 text-center my-5">Cart</h2>
+    <hr class="mb-5">
+    
+    <div class="flex justify-between items-center p-3">
+      <div class="list-cart flex items-center space-x-1">
+        <img src="images/shirt-3.jpg" alt="SHIRT" class="w-20 h-20">
+        <div class="cart-details">
+          <h2 class="lg:text-2xl text-sm md:text-2xl text-white font-medium">Jasper</h2>
+          <h3 class="font-medium text-white"><i class="fa-solid fa-peso-sign">699 / 1</i></h3>
+        </div>
+      </div>
+  
+      <div class="w-auto h-10 flex justify-between items-center bg-gray-300 p-5 t font-medium space-x-5 rounded-md">
+        <button class="increase-quantity">+</button>
+        <span class="quantity-display">1</span>
+        <button class="decrease-quantity" id="btn-decrease">-</button>
+      </div>
+    </div>
+  
+    <div class="w-full absolute bottom-0 space-x-1">
+      <div class="flex mt-5">
+        <button class="w-full p-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold close-btn" id="btn-close">CLOSE</button>
+        <button class="w-full p-2 bg-blue-700 hover:bg-blue-600 text-white font-semibold">CHECKOUT</button>
+      </div>
+    </div>
+    
+  </div>

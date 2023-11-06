@@ -1,3 +1,4 @@
+
 async function product() {
   
   const response = await fetch("product.json");
@@ -6,11 +7,10 @@ async function product() {
 }
 
 
-
 product();
 
 
-// NEW ARRIVALS RENDERING
+// NEW ARRIVALS RENDERING 
 function displayProduct(product) {
 
   let productHtml = "";
@@ -19,11 +19,12 @@ function displayProduct(product) {
       
       const {
           name,
-          productID,
+          id,
           price,
           image,
           color,
           image_gallery
+
 
       } = product[i];
 
@@ -31,7 +32,7 @@ function displayProduct(product) {
       <!-- SHIRT IMAGE -->
       <div class="relative">
         <a href="product.html?product=${i}">
-          <img src="${image}" alt="TSHIRT-1" class="rounded-tl-lg rounded-tr-lg">
+          <img src="${image}" alt="TSHIRT-${i}" class="rounded-tl-lg rounded-tr-lg">
          
         </a>
          
@@ -72,34 +73,66 @@ function displayProduct(product) {
 
   document.getElementById('new-arrivals').innerHTML = productHtml;
   
+  let heartCount = 0;
+
+  const heartTog = document.querySelector('.heart-toggle');
+  const wishlistCount = document.querySelector('.wish-list');
+
+  function updateWishlistCount() {
+    if(heartCount > 0){
+      wishlistCount.classList.add('flex');
+      wishlistCount.classList.remove('hidden');
+      wishlistCount.textContent = heartCount;
+    }else{
+      wishlistCount.classList.add('hidden');
+    }
+    localStorage.setItem('heartCount',JSON.stringify(heartCount));   
+  }
+  
+  function setupWishlistButtons() {
     const wishlist = document.querySelectorAll('.wishlist');
-  wishlist.forEach(button => {
-    button.addEventListener('click', () => {
-      if (button.classList.contains('far')) {
-        button.classList.remove('far');
-        button.classList.add('fas');
-        button.classList.toggle('wishlist-active');
-      }else{
-        button.classList.add('far');
-        button.classList.remove('fas');
-        button.classList.toggle('wishlist-active');
-      }
+    wishlist.forEach(button => {
+      button.addEventListener('click', () => {
+        if (button.classList.contains('far')) {
+          button.classList.remove('far');
+          button.classList.add('fas', 'wishlist-active'); 
+          heartCount++;
+        } else {
+          button.classList.add('far');
+          button.classList.remove('fas', 'wishlist-active'); 
+          heartCount--;
+        }
+        updateWishlistCount();
+      });
     });
-  });
-
-
-
-}
-
+  }
+setupWishlistButtons();
+  
 const cart = document.querySelector('.cart');
-
-
 const shoppingCartIcon = document.querySelector('.fa-shopping-cart');
-
+const close = document.querySelector(".close-btn");
 
 shoppingCartIcon.addEventListener('click', () => {
-  
-  cart.classList.toggle('hidden');
+  if (cart.style.right === '-150%') {
+    cart.style.right = '0';
+  } else {
+    cart.style.right = '-150%';
+  }
 });
 
+close.addEventListener('click', () => {
+  cart.style.right = '-150%';
+});
+}
+
+const userDropdownButton = document.getElementById("userDropdownButton");
+const userDropdownContent = document.getElementById("userDropdownContent");
+
+userDropdownButton.addEventListener("click", () => {
+  if (userDropdownContent.classList.contains("hidden")) {
+    userDropdownContent.classList.remove("hidden");
+  } else {
+    userDropdownContent.classList.add("hidden");
+  }
+});
 

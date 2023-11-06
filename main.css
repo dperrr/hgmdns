@@ -25,10 +25,13 @@
 
 }
 .cart {
-    transition: right 1s;
+    transition: right 0.5s;
     background-color: rgba(15, 43, 67, 0.709);
 }
-
-.wishlist-active{
+.wishlist-active {
     color: red;
+}
+
+.wish-list{
+    display: none;
 }
