@@ -69,7 +69,7 @@ function displayProduct(product) {
     productHtml += productItem;
 
     
-  };
+  }
 
   document.getElementById('new-arrivals').innerHTML = productHtml;
   
@@ -107,7 +107,7 @@ function displayProduct(product) {
     });
   }
 setupWishlistButtons();
-  
+
 const cart = document.querySelector('.cart');
 const shoppingCartIcon = document.querySelector('.fa-shopping-cart');
 const close = document.querySelector(".close-btn");

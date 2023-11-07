@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//  QUANTITY INCREAS
+//  QUANTITY INCREASE
 const cart = document.querySelector('.cart');
 const shoppingCartIcon = document.querySelector('.fa-shopping-cart');
 shoppingCartIcon.addEventListener('click', () => {
@@ -87,3 +87,27 @@ shoppingCartIcon.addEventListener('click', () => {
 document.querySelector('.close-btn').addEventListener('click', () => {
   cart.classList.add('hidden');
 });
+
+
+
+//FUNCTION FOR SIZES BUTTONS
+function setupSizeSelection() {
+
+  const sizeButtons = document.querySelectorAll('.sizes button');
+
+  
+  const sizeSelectedElement = document.getElementById('size-selected');
+
+  sizeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+     
+      const selectedSize = button.getAttribute('data-size');
+
+    
+      sizeSelectedElement.textContent = selectedSize;
+    });
+  });
+}
+
+
+setupSizeSelection();
