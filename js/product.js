@@ -77,16 +77,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//  QUANTITY INCREASE
 const cart = document.querySelector('.cart');
 const shoppingCartIcon = document.querySelector('.fa-shopping-cart');
+const close = document.querySelector(".close-btn");
+
 shoppingCartIcon.addEventListener('click', () => {
-  cart.classList.toggle('hidden');
+  if (cart.style.right === '-150%') {
+    cart.style.right = '0';
+  } else {
+    cart.style.right = '-150%';
+  }
 });
 
-document.querySelector('.close-btn').addEventListener('click', () => {
-  cart.classList.add('hidden');
+close.addEventListener('click', () => {
+  cart.style.right = '-150%';
 });
+
+
+
 
 
 

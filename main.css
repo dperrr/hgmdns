@@ -4,6 +4,10 @@
     scroll-behavior: smooth;
 }
 
+body{
+    background-color: #F3F3F5;
+}
+
 .logo img {
     width: 120px;
     height: auto;

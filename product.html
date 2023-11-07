@@ -116,36 +116,36 @@
                 </div>
             </div>
         </section>
-         <!-- SIDE CART -->
-       <div class="cart fixed top-0 right-0 w-96 h-screen transition-right duration-1000 hidden ">
-
-        <h2 class="text-3xl text-yellow-400 text-center my-5">Cart</h2>
-        <hr class="mb-5">
         
-        <div class="flex justify-between items-center p-3">
-          <div class="list-cart flex items-center space-x-1">
-            <img src="images/shirt-3.jpg" alt="SHIRT" class="w-20 h-20">
-            <div class="cart-details">
-              <h2 class="lg:text-2xl text-sm md:text-2xl text-white font-medium">Jasper</h2>
-              <h3 class="font-medium text-white"><i class="fa-solid fa-peso-sign">699 / 1</i></h3>
-            </div>
-          </div>
+      <!-- SIDE CART -->
+    <div class="cart fixed top-0 right-0 w-96 h-screen" style="right: -150%;">
+
+      <h2 class="text-3xl text-white text-center my-5">Cart</h2>
+      <hr class="mb-5">
       
-          <div class="w-auto h-10 flex justify-between items-center bg-gray-300 p-5 t font-medium space-x-5 rounded-md">
-            <button class="increase-quantity">+</button>
-            <span class="quantity-display">1</span>
-            <button class="decrease-quantity" id="btn-decrease">-</button>
+      <div class="flex justify-between items-center p-3">
+        <div class="list-cart flex items-center space-x-1">
+          <img src="images/shirt-3.jpg" alt="SHIRT" class="w-20 h-20">
+          <div class="cart-details">
+            <h2 class="lg:text-2xl text-sm md:text-2xl text-white font-medium">Jasper</h2>
+            <h3 class="font-medium text-white"><i class="fa-solid fa-peso-sign">699 / 1</i></h3>
           </div>
         </div>
-      
-        <div class="w-full absolute bottom-0 space-x-1 bg">
-          <div class="flex mt-5 bg-green-300">
-            <button class="w-full p-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold close-btn">CLOSE</button>
-            <a href="checkout.html?" class="w-full p-2 bg-blue-700 hover:bg-blue-600 text-white font-semibold text-center">CHECKOUT</a>
-          </div>
-        </div> 
+    
+        <div class="w-auto h-10 flex justify-between items-center bg-gray-300 p-5 t font-medium space-x-5 rounded-md">
+          <button class="increase-quantity">+</button>
+          <span class="quantity-display">1</span>
+          <button class="decrease-quantity" id="btn-decrease">-</button>
+        </div>
       </div>
-      
+    
+      <div class="w-full absolute bottom-0 space-x-1">
+        <div class="flex mt-5">
+          <button class="w-full p-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold close-btn" id="btn-close">CLOSE</button>
+          <button class="w-full p-2 bg-blue-700 hover:bg-blue-600 text-white font-semibold">CHECKOUT</button>
+        </div>
+      </div>   
+    </div>
        
       </main>
       <script src="js/product.js"></script>
